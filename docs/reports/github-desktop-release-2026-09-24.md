@@ -29,7 +29,7 @@ C++17、Qt 6.2+、CMake、Qt SQL/SQLite、Qt Network TCP、Ubuntu/Linux。
 - 匿名 GitHub API 查询返回 HTTP 404；私有仓库也可能返回相同结果，因此无法只凭此结果判断仓库是否存在。
 - HTTPS Git 查询需要用户名凭据；SSH 查询因本机 GitHub host key/认证不可用而失败；本机没有 `gh` CLI 或 `GH_TOKEN`/`GITHUB_TOKEN`。
 - 因缺少有效 GitHub 认证，未创建/覆盖远端、未推送。现有 `origin`（Gitee）保持不变。
-- 本地发布提交：待创建。
+- 本地发布提交（Qt-only 初始快照）：`8457801d644bdef74c0a66725f94b13f19bcac8c`。
 
 ## 未解决问题
 
