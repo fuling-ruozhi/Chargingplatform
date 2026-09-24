@@ -87,7 +87,7 @@ cmake --build build -j"$(nproc)"
 ctest --test-dir build --output-on-failure
 ```
 
-发布验证结果请查看 `docs/reports/` 中的 GitHub Release 报告。
+Ubuntu 发布验证中 CTest 的 65 项测试全部通过，覆盖数据库迁移、SQLite 服务、TCP 客户端/服务端集成以及管理端和用户端 UI。完整记录见 `docs/reports/` 中的 GitHub Release 报告。
 
 ## 截图
 

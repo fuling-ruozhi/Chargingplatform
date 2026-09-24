@@ -15,7 +15,8 @@ This repository's GitHub release is scoped to the Qt desktop application: C++17,
 - Charging orders, reservation, settlement, and history
 - User ratings and station reviews
 - Station recommendations and smart charging support
-- Administrator dashboards, analytics, and logs
+- Operation log auditing and security event recording
+- Administrator dashboards and analytics
 
 ## Architecture
 
@@ -61,6 +62,8 @@ To run the automated test suite:
 ```bash
 ctest --test-dir build --output-on-failure
 ```
+
+The Ubuntu release validation passed all 65 CTest tests, including database migrations, SQLite-backed services, TCP client/server integration, and both desktop UIs.
 
 ## Run
 

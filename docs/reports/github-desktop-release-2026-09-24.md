@@ -35,6 +35,10 @@ Included the administrator log audit page; logging schema migration; administrat
 
 The local `main` branch is based on the existing Qt-only snapshot. The client, core, database, and test trees match the validated feature worktree, including all listed logging sources and tests. The original feature branch worktree is kept intact; no reset or force push is used. The release commit hash is recorded in the final release report/update.
 
+- Release commit: `7b4716f673afeafc14071dff42c0bb71a33b00f9` (`Release Qt charging station platform with logging audit module`).
+- Local branch: `main`.
+- The release worktree was clean immediately after the release commit; this report update records the commit hash and README test-result wording.
+
 ## Open items
 
 Provide access to the intended GitHub repository or create it under the specified account, then push the local `main` branch. No local code or test failures remain.
