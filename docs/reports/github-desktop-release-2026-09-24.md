@@ -28,8 +28,13 @@ C++17、Qt 6.2+、CMake、Qt SQL/SQLite、Qt Network TCP、Ubuntu/Linux。
 - 目标地址：<https://github.com/fuling-ruozhi/NCS-Charging-Station-Platform>
 - 匿名 GitHub API 查询返回 HTTP 404；私有仓库也可能返回相同结果，因此无法只凭此结果判断仓库是否存在。
 - HTTPS Git 查询需要用户名凭据；SSH 查询因本机 GitHub host key/认证不可用而失败；本机没有 `gh` CLI 或 `GH_TOKEN`/`GITHUB_TOKEN`。
-- 因缺少有效 GitHub 认证，未创建/覆盖远端、未推送。现有 `origin`（Gitee）保持不变。
+- 已将 GitHub URL 配置为本地 `github` remote；现有 `origin`（Gitee）保持不变。
+- 因缺少有效 GitHub 认证，未创建/覆盖远端、未推送。
 - 本地发布提交（Qt-only 初始快照）：`8457801d644bdef74c0a66725f94b13f19bcac8c`。
+
+## 当前 Git 状态
+
+当前检出的 `feature/admin/formal-dashboard-final` 仍有未提交改动。该状态在任务开始时已存在；本次没有把这些改动暂存或提交到该分支。README、忽略规则和本报告的任务改动也显示在该工作区状态中。构建目录被忽略。独立的本地 `main` 发布历史只包含上文所列 Qt 桌面文件，已检查不含 `web/`、`ml/`、构建目录、数据库文件、`package.json`、`pom.xml` 或 Dockerfile。
 
 ## 未解决问题
 
