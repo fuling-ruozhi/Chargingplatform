@@ -22,6 +22,7 @@ Included the administrator log audit page; logging schema migration; administrat
 - Initial sandbox `ctest --output-on-failure`: 43/65 passed; loopback network restrictions caused failures.
 - Re-run with local loopback access, `ctest --output-on-failure`: **65/65 passed**.
 - Includes logging service, auth rate limiting, schema migration, SQLite-backed integration, TCP client/server, admin UI, user UI, and station recommendation coverage.
+- Offscreen startup smoke: `ncs_admin` initialized SQLite (18 tables; `PRAGMA integrity_check` = `ok`) and started the TCP server; its admin client and `ncs_user` each connected successfully (two client-connection log entries).
 
 ## GitHub status
 
