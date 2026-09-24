@@ -1,0 +1,63 @@
+QWidget {
+    background: #f4f7fb;
+    color: #172033;
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+}
+QMainWindow, QDialog { background: #f4f7fb; }
+QLabel { background: transparent; }
+QLabel#brandLabel { color: #2563eb; font-size: 34px; font-weight: 800; }
+QLabel#pageTitle { color: #172033; font-size: 24px; font-weight: 750; }
+QLabel#sectionTitle { color: #172033; font-size: 18px; font-weight: 700; }
+QLabel#subtitle, QLabel#mutedLabel { color: #64748b; }
+QLabel#statusSuccess { color: #059669; font-weight: 600; }
+QLabel#statusError { color: #dc2626; font-weight: 600; }
+QLabel#statusLoading { color: #2563eb; font-weight: 600; }
+QFrame#heroCard, QFrame#stationCard, QFrame#chargerCard, QFrame#infoCard {
+    background: #ffffff;
+    border: 1px solid #e1e8f2;
+    border-radius: 12px;
+}
+QLineEdit {
+    min-height: 24px;
+    padding: 11px 12px;
+    background: #ffffff;
+    border: 1px solid #cfd8e6;
+    border-radius: 8px;
+    selection-background-color: #2563eb;
+}
+QLineEdit:focus { border: 1px solid #2563eb; }
+QPushButton {
+    min-height: 22px;
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1px solid #2563eb;
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 650;
+}
+QPushButton:hover { background: #1d4ed8; border-color: #1d4ed8; }
+QPushButton:pressed { background: #1e40af; }
+QPushButton:disabled { background: #cbd5e1; border-color: #cbd5e1; color: #64748b; }
+QPushButton#secondaryButton {
+    background: #ffffff;
+    color: #2563eb;
+    border-color: #b9cdfa;
+}
+QPushButton#secondaryButton:hover { background: #eff6ff; border-color: #2563eb; }
+QPushButton#dangerButton { background: #dc2626; border-color: #dc2626; }
+QPushButton#dangerButton:hover { background: #b91c1c; border-color: #b91c1c; }
+QPushButton#ghostButton { background: transparent; color: #475569; border-color: #cbd5e1; }
+QPushButton#reviewStarButton { padding: 2px; color: #cbd5e1; background: #ffffff; border-color: #dbe4f0; font-size: 18px; }
+QPushButton#reviewStarButton:hover, QPushButton#reviewStarButton[selected="true"] { color: #f59e0b; border-color: #f6c453; background: #fffbeb; }
+QPushButton#reviewSubmitButton { min-width: 120px; }
+QLabel#reviewPreviewLabel { color: #b45309; font-size: 18px; font-weight: 750; }
+QLabel#ratingDetails { color: #334155; line-height: 1.3em; }
+QLabel#statusIdle { color: #15803d; background: #ecfdf3; padding: 5px 9px; border-radius: 9px; font-weight: 700; }
+QLabel#statusUsing { color: #c2410c; background: #fff7ed; padding: 5px 9px; border-radius: 9px; font-weight: 700; }
+QLabel#statusFault { color: #b91c1c; background: #fef2f2; padding: 5px 9px; border-radius: 9px; font-weight: 700; }
+QScrollArea { border: 0; background: transparent; }
+QScrollArea > QWidget > QWidget { background: transparent; }
+QScrollBar:vertical { width: 8px; background: transparent; margin: 2px; }
+QScrollBar::handle:vertical { background: #cbd5e1; border-radius: 4px; min-height: 30px; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }

@@ -1,0 +1,38 @@
+/* NCS Marketplace Design System — admin client */
+QWidget { background: #F4F5F9; color: #18181B; font-family: "Microsoft YaHei UI", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif; font-size: 13px; }
+QMainWindow { background: #F4F5F9; }
+QLabel { background: transparent; }
+QLabel#brandLabel { color: #18181B; font-size: 31px; font-weight: 800; }
+QLabel#brandAccent { color: #6C4CF5; font-size: 31px; font-weight: 800; }
+QLabel#pageTitle { color: #18181B; font-size: 25px; font-weight: 750; }
+QLabel#sectionTitle { color: #18181B; font-size: 17px; font-weight: 700; }
+QLabel#metricNumber { color: #6C4CF5; font-size: 28px; font-weight: 800; }
+QLabel#mutedLabel, QLabel#subtitle { color: #71717A; }
+QLabel#statusLoading { color: #5D3EE8; background: #EEEAFE; padding: 7px 10px; border-radius: 10px; font-weight: 600; }
+QLabel#statusSuccess { color: #168A5C; background: #EAF8F1; padding: 7px 10px; border-radius: 10px; font-weight: 600; }
+QLabel#statusError { color: #C7353B; background: #FDECEC; padding: 7px 10px; border-radius: 10px; font-weight: 600; }
+QFrame#loginShell, QFrame#loginCard, QFrame#contentCard, QFrame#metricCard, QFrame#emptyCard { background: #FFFFFF; border: 1px solid #E7E7EC; border-radius: 20px; }
+QFrame#adminBrandPanel, QFrame#dashboardHero { background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #6657E8, stop:0.58 #7B69EE, stop:1 #91A9E6); border: 0; border-radius: 20px; }
+QLabel#adminHeroTitle { color: #FFFFFF; font-size: 30px; font-weight: 800; }
+QLabel#adminHeroSubtitle { color: #F4F2FF; font-size: 14px; }
+QLabel#adminHeroEyebrow { color: #E7E3FF; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+QLabel#adminHeroPill { color: #FFFFFF; background: rgba(255,255,255,38); border: 1px solid rgba(255,255,255,74); border-radius: 14px; padding: 9px 12px; }
+QLabel#adminDatabaseLabel { color: #18181B; font-size: 15px; font-weight: 700; }
+QLabel#adminChargerLabel { color: #6C4CF5; font-size: 30px; font-weight: 800; }
+QLineEdit { min-height: 26px; padding: 11px 13px; background: #FFFFFF; border: 1px solid #E1E2E8; border-radius: 12px; selection-background-color: #6C4CF5; }
+QLineEdit:focus { border: 1px solid #6C4CF5; }
+QPushButton { padding: 9px 16px; color: #FFFFFF; background: #6C4CF5; border: 1px solid #6C4CF5; border-radius: 11px; font-weight: 650; }
+QPushButton:hover { background: #5D3EE8; border-color: #5D3EE8; }
+QPushButton:disabled { background: #E5E6EC; border-color: #E5E6EC; color: #A1A1AA; }
+QPushButton#adminLogoutButton { color: #5D5D66; background: #FFFFFF; border-color: #E1E2E8; }
+QPushButton#adminLogoutButton:hover { background: #F8F9FC; color: #18181B; }
+QToolBar { spacing: 8px; padding: 10px 20px; background: #FFFFFF; border-bottom: 1px solid #E7E7EC; }
+QFrame#adminNavigation { background: #FFFFFF; border-right: 1px solid #E7E7EC; }
+QLabel#navBrand { color: #18181B; font-size: 20px; font-weight: 800; }
+QLabel#navBrandAccent { color: #6C4CF5; font-size: 20px; font-weight: 800; }
+QLabel#adminMessageLabel { color: #71717A; background: #F8F9FC; padding: 10px; border-radius: 11px; }
+QFrame#adminNavigation QPushButton { text-align: left; background: transparent; border: 0; color: #5D5D66; padding: 12px 14px; border-radius: 11px; }
+QFrame#adminNavigation QPushButton:hover { background: #F8F7FF; color: #5D3EE8; }
+QFrame#adminNavigation QPushButton:checked { background: #EEEAFE; color: #5D3EE8; font-weight: 700; }
+QLabel#placeholderLabel { color: #71717A; font-size: 14px; }
+QStatusBar { background: #FFFFFF; border-top: 1px solid #E7E7EC; color: #71717A; }

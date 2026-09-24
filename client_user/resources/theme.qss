@@ -1,0 +1,130 @@
+/* NCS Marketplace Design System — user client */
+QWidget {
+    background: #F4F5F9;
+    color: #18181B;
+    font-family: "Microsoft YaHei UI", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13px;
+}
+QMainWindow, QDialog { background: #F4F5F9; }
+QDialog#avatarSourceDialog, QDialog#cameraUnavailableDialog,
+QDialog#cameraCaptureDialog { background: #FFFFFF; }
+QWidget#loginRoot, QWidget#userRoot { background: #F4F5F9; }
+QLabel { background: transparent; }
+
+QLabel#brandLabel { color: #18181B; font-size: 30px; font-weight: 800; }
+QLabel#brandAccent { color: #6C4CF5; font-size: 30px; font-weight: 800; }
+QLabel#pageTitle { color: #18181B; font-size: 23px; font-weight: 750; }
+QLabel#sectionTitle { color: #18181B; font-size: 17px; font-weight: 700; }
+QLabel#cardTitle { color: #18181B; font-size: 15px; font-weight: 700; }
+QLabel#primaryNumber { color: #6C4CF5; font-size: 26px; font-weight: 800; }
+QLabel#subtitle, QLabel#mutedLabel { color: #71717A; }
+QLabel#captionLabel { color: #A1A1AA; font-size: 12px; }
+QLabel#priceLabel { color: #6C4CF5; font-size: 20px; font-weight: 800; }
+QLabel#stationPriceLabel { color: #6C4CF5; background: #FFFFFF; border: 1px solid #6C4CF5; border-radius: 12px; padding: 7px 8px; font-size: 17px; font-weight: 800; }
+QLabel#heroTitle { color: #FFFFFF; font-size: 22px; font-weight: 800; }
+QLabel#heroSubtitle { color: #F4F2FF; font-size: 13px; }
+QLabel#avatarCircle { color: #6C4CF5; background: #EEEAFE; border: 1px solid #D9D3FF; border-radius: 34px; font-size: 24px; font-weight: 800; }
+QLabel#cameraPhotoPreview {
+    background: #F3F0FF; border: 1px solid #D9D3FF; border-radius: 20px;
+}
+QVideoWidget#cameraVideoWidget {
+    background: #18181B; border: 1px solid #D9D3FF; border-radius: 20px;
+}
+QLabel#availabilityLabel { color: #168A5C; font-weight: 700; }
+
+QLabel#statusSuccess, QLabel[status="completed"] {
+    color: #168A5C; background: #EAF8F1; padding: 5px 10px;
+    border-radius: 10px; font-weight: 650;
+}
+QLabel#statusError { color: #C7353B; background: #FDECEC; padding: 7px 10px; border-radius: 10px; font-weight: 600; }
+QLabel#statusLoading { color: #5D3EE8; background: #EEEAFE; padding: 7px 10px; border-radius: 10px; font-weight: 600; }
+QLabel#statusIdle, QLabel[status="idle"] { color: #168A5C; background: #EAF8F1; padding: 5px 10px; border-radius: 10px; font-weight: 700; }
+QLabel#statusUsing, QLabel[status="reserved"] { color: #5D3EE8; background: #EEEAFE; padding: 5px 10px; border-radius: 10px; font-weight: 700; }
+QLabel[status="charging"] { color: #315FCE; background: #EEF3FF; padding: 5px 10px; border-radius: 10px; font-weight: 700; }
+QLabel#statusCharging { color: #5D3EE8; background: #EEEAFE; padding: 5px 10px; border-radius: 10px; font-weight: 700; }
+QLabel#statusFault, QLabel[status="fault"] { color: #C7353B; background: #FDECEC; padding: 5px 10px; border-radius: 10px; font-weight: 700; }
+QLabel[status="cancelled"] { color: #71717A; background: #EEEFF3; padding: 5px 10px; border-radius: 10px; font-weight: 650; }
+QLabel#statusCancelled { color: #71717A; background: #EEEFF3; padding: 5px 10px; border-radius: 10px; font-weight: 650; }
+
+QFrame#marketHeader, QFrame#loginCard, QFrame#stationCard, QFrame#chargerCard,
+QFrame#infoCard, QFrame#orderCard, QFrame#profileCard, QFrame#metricCard,
+QFrame#receiptCard, QFrame#settingsCard, QFrame#recommendationPanel {
+    background: #FFFFFF;
+    border: 1px solid #E7E7EC;
+    border-radius: 18px;
+}
+QFrame#gradientHero, QFrame#loginHero, QFrame#featuredCard {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #6657E8, stop:0.58 #7A6DEB, stop:1 #91A9E6);
+    border: 0;
+    border-radius: 20px;
+}
+QFrame#catalogSurface { background: #F8F9FC; border: 0; border-radius: 24px; }
+QFrame#featuredCard QLabel#mutedLabel { color: #F4F2FF; }
+QFrame#divider { background: #E7E7EC; min-height: 1px; max-height: 1px; }
+
+QLineEdit, QDoubleSpinBox, QSpinBox, QComboBox {
+    min-height: 24px;
+    padding: 10px 12px;
+    background: #FFFFFF;
+    border: 1px solid #E1E2E8;
+    border-radius: 12px;
+    selection-background-color: #6C4CF5;
+}
+QLineEdit:focus, QDoubleSpinBox:focus, QSpinBox:focus, QComboBox:focus { border: 1px solid #6C4CF5; }
+QLineEdit::placeholder { color: #A1A1AA; }
+QComboBox::drop-down { border: 0; width: 28px; }
+QComboBox QAbstractItemView { background: #FFFFFF; border: 1px solid #E7E7EC; selection-background-color: #EEEAFE; selection-color: #18181B; }
+
+QPushButton {
+    min-height: 22px;
+    padding: 9px 15px;
+    border-radius: 11px;
+    border: 1px solid #6C4CF5;
+    background: #6C4CF5;
+    color: #FFFFFF;
+    font-weight: 650;
+}
+QPushButton:hover { background: #5D3EE8; border-color: #5D3EE8; }
+QPushButton:pressed { background: #4F31D0; border-color: #4F31D0; }
+QPushButton:focus { outline: none; }
+QPushButton:disabled { background: #E5E6EC; border-color: #E5E6EC; color: #A1A1AA; }
+QPushButton#secondaryButton, QPushButton[variant="secondary"] {
+    background: #FFFFFF; color: #6048F2; border-color: #CFC7FF;
+}
+QPushButton#secondaryButton:hover, QPushButton[variant="secondary"]:hover { background: #F3F0FF; border-color: #6C4CF5; }
+QPushButton#dangerButton, QPushButton[variant="danger"] { background: #E5484D; border-color: #E5484D; }
+QPushButton#dangerButton:hover, QPushButton[variant="danger"]:hover { background: #C7353B; border-color: #C7353B; }
+QPushButton#ghostButton, QPushButton[variant="ghost"] { background: transparent; color: #5D5D66; border-color: #E1E2E8; }
+QPushButton#ghostButton:hover, QPushButton[variant="ghost"]:hover { background: #F8F9FC; color: #18181B; }
+QPushButton#pillButton, QPushButton[variant="pill"] { background: #FFFFFF; color: #5D3EE8; border-color: #D9D3FF; border-radius: 18px; padding: 7px 13px; }
+QPushButton#profileButton { background: #FFFFFF; color: #5D3EE8; border-color: #CFC7FF; border-radius: 16px; padding: 7px 12px; }
+QPushButton[variant="plan-card"] {
+    background: #FFFFFF; color: #18181B; border: 1px solid #E7E7EC;
+    border-radius: 16px; padding: 11px 14px; text-align: left;
+}
+QPushButton[variant="plan-card"]:hover { background: #F8F7FF; border-color: #CFC7FF; }
+QPushButton[variant="plan-card"]:checked { background: #F3F0FF; border: 2px solid #6C4CF5; color: #4F31D0; }
+QPushButton[variant="plan-card"][recommended="true"] { border-color: #8D79F7; }
+QPushButton[variant="recommendation-card"] {
+    background: #FFFFFF; color: #18181B; border: 1px solid #E7E7EC;
+    border-radius: 14px; padding: 9px 11px; text-align: left;
+    font-size: 12px;
+}
+QPushButton[variant="recommendation-card"]:hover {
+    background: #F8F7FF; border-color: #8D79F7; color: #4F31D0;
+}
+QLabel#smartConstraintBadge { color: #4F31D0; background: #FFFFFF; border-radius: 10px; padding: 5px 9px; font-weight: 700; }
+
+QScrollArea { border: 0; background: transparent; }
+QScrollArea > QWidget > QWidget { background: transparent; }
+QScrollBar:vertical { width: 6px; background: transparent; margin: 2px; }
+QScrollBar::handle:vertical { background: #D5D2E8; border-radius: 3px; min-height: 32px; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
+QProgressBar { background: #EEEAFE; border: 0; border-radius: 7px; min-height: 14px; text-align: center; color: transparent; }
+QProgressBar::chunk { background: #6C4CF5; border-radius: 7px; }
+
+/* EXT-SC-03 续航预测卡片 */
+QProgressBar#forecastSocBar { background: #EEEAFE; border-radius: 7px; min-height: 14px; max-height: 14px; }
+QProgressBar#forecastSocBar::chunk { background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #6C4CF5, stop:1 #8D79F7); border-radius: 7px; }
+QLabel#forecastSocLabel { color: #18181B; font-size: 15px; font-weight: 700; }

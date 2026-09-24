@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/client_user">
+        <file>phase4.qss</file>
+        <file>map_template.html</file>
+        <file>theme.qss</file>
+    </qresource>
+</RCC>

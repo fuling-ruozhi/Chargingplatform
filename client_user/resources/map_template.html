@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+html, body { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+#map { width: 100%; height: 100%; background: #EAEFF5; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+function initMap() {
+    var box = document.getElementById('map');
+    if (typeof qq === 'undefined' || !qq.maps || !qq.maps.Map) return;
+
+    var stationPos = new qq.maps.LatLng(__LAT__, __LNG__);
+    var map = new qq.maps.Map(box, { center: stationPos, zoom: 15 });
+    window.__ncsMap = map;  // MapRouteDialog 注入驾车路线时使用
+
+    // 电站标记
+    var marker = new qq.maps.Marker({ position: stationPos, map: map, title: '__NAME_ESC__' });
+    var info = new qq.maps.InfoWindow({
+        map: map,
+        position: stationPos,
+        content: '<div style="padding:6px;font-size:13px"><b>__NAME_HTML__</b><br>__ADDR_HTML__<br>距您 __DIST__ km</div>'
+    });
+    info.open();
+
+    // 我的位置（模拟定位），__USER_HAS__ 由 C++ 注入 true/false
+    var hasUser = __USER_HAS__;
+    if (hasUser) {
+        var userPos = new qq.maps.LatLng(__USER_LAT__, __USER_LNG__);
+        var dot = document.createElement('canvas');
+        dot.width = 24; dot.height = 24;
+        var ctx = dot.getContext('2d');
+        if (ctx) {
+            ctx.beginPath();
+            ctx.arc(12, 12, 11, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(30,136,229,0.30)';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(12, 12, 7, 0, Math.PI * 2);
+            ctx.fillStyle = '#1E88E5';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(12, 12, 3, 0, Math.PI * 2);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fill();
+        }
+        var userIcon = new qq.maps.MarkerImage(
+            dot.toDataURL(), new qq.maps.Size(24, 24),
+            new qq.maps.Point(0, 0), new qq.maps.Point(12, 12));
+        var userMarker = new qq.maps.Marker({
+            position: userPos,
+            map: map,
+            icon: userIcon,
+            title: '我的位置'
+        });
+
+        // 用户与电站相距较远时，缩放使两个点都可见
+        var dLat = __USER_LAT__ - __LAT__;
+        var dLng = __USER_LNG__ - __LNG__;
+        if (dLat * dLat + dLng * dLng > 1e-6) {
+            var bounds = new qq.maps.LatLngBounds();
+            bounds.extend(stationPos);
+            bounds.extend(userPos);
+            map.fitBounds(bounds);
+        }
+    }
+    window.__ncsMapReady = true;  // 地图就绪标志，MapRouteDialog 轮询此值
+}
+
+// ---- UC-U-04 增强：MapRouteDialog 注入驾车路线绘制 ----
+// pts 为 [lat,lng,lat,lng,...] 已解码坐标；distM/durMin 供扩展使用。
+window.showDrivingRoute = function(pts, distM, durMin) {
+    if (typeof qq === 'undefined' || !qq.maps || !window.__ncsMap) return false;
+    if (!pts || pts.length < 4) return true;
+    var path = [];
+    var routeBounds = new qq.maps.LatLngBounds();
+    for (var i = 0; i + 1 < pts.length; i += 2) {
+        var point = new qq.maps.LatLng(pts[i], pts[i + 1]);
+        path.push(point);
+        routeBounds.extend(point);
+    }
+    new qq.maps.Polyline({
+        map: window.__ncsMap,
+        path: path,
+        strokeColor: '#0B8043',
+        strokeWeight: 7,
+        strokeOpacity: 0.9
+    });
+    window.__ncsMap.fitBounds(routeBounds);
+    return true;
+};
+
+// 降级模式：驾车路线接口不可用（配额/无网）时画起点→终点的直线参考线。
+window.showStraightRoute = function(fromLat, fromLng, toLat, toLng) {
+    if (typeof qq === 'undefined' || !qq.maps || !window.__ncsMap) return false;
+    var path = [
+        new qq.maps.LatLng(fromLat, fromLng),
+        new qq.maps.LatLng(toLat, toLng)
+    ];
+    new qq.maps.Polyline({
+        map: window.__ncsMap,
+        path: path,
+        strokeColor: '#757575',
+        strokeWeight: 4,
+        strokeOpacity: 0.9
+    });
+    var refBounds = new qq.maps.LatLngBounds();
+    refBounds.extend(path[0]);
+    refBounds.extend(path[1]);
+    window.__ncsMap.fitBounds(refBounds);
+    return true;
+};
+</script>
+<script src="https://map.qq.com/api/js?v=2.exp&key=__KEY__&callback=initMap"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<RCC><qresource prefix="/client_admin">
+  <file>admin.qss</file>
+  <file>theme.qss</file>
+  <file>icons/analytics.svg</file><file>icons/status.svg</file>
+  <file>icons/charger.svg</file><file>icons/station.svg</file>
+  <file>icons/users.svg</file><file>icons/prediction.svg</file>
+  <file>icons/analytics-selected.svg</file><file>icons/status-selected.svg</file>
+  <file>icons/charger-selected.svg</file><file>icons/station-selected.svg</file>
+  <file>icons/users-selected.svg</file><file>icons/prediction-selected.svg</file>
+  <file>icons/refresh.svg</file><file>icons/logout.svg</file><file>icons/help.svg</file>
+  <file>icons/search.svg</file><file>icons/empty.svg</file><file>icons/trend.svg</file>
+</qresource></RCC>
