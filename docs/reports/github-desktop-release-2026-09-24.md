@@ -2,7 +2,7 @@
 
 ## Scope
 
-Prepare the Qt/Linux desktop charging station management platform for `fuling-ruozhi/NCS-Charging-Station-Platform`. The release tree contains the Qt/C++ clients, shared client components, core services, SQLite schema, tests, docs, CMake files, and license. Standalone Vue/H5, Spring Boot, MySQL, Redis, and Docker components are not part of this release. The embedded HTML resource used by the Qt client's in-app map remains a Qt resource.
+Prepare the Qt/Linux desktop charging station management platform for `fuling-ruozhi/Chargingplatform`. The release tree contains the Qt/C++ clients, shared client components, core services, SQLite schema, tests, docs, CMake files, and license. Standalone Vue/H5, Spring Boot, MySQL, Redis, and Docker components are not part of this release. The embedded HTML resource used by the Qt client's in-app map remains a Qt resource.
 
 ## Logging module
 
@@ -26,11 +26,10 @@ Included the administrator log audit page; logging schema migration; administrat
 
 ## GitHub status
 
-- Target: <https://github.com/fuling-ruozhi/NCS-Charging-Station-Platform>
-- Configured `github` remote: `git@github.com:fuling-ruozhi/NCS-Charging-Station-Platform.git`.
-- `git fetch --all --prune` updated `origin` but GitHub returned `Repository not found` for `github`. This can mean the repository does not exist or the current SSH identity lacks access.
-- `ssh -T git@github.com` authenticated successfully as `fuling-ruozhi`; GitHub still returned `Repository not found` for the target repository.
-- No repository was created and no push was attempted. The authenticated target is not available, so do not substitute another repository.
+- Target: <https://github.com/fuling-ruozhi/Chargingplatform>
+- Added `chargingplatform` remote at `git@github.com:fuling-ruozhi/Chargingplatform.git`; the existing Gitee `origin` and previous `github` remote were preserved.
+- HTTPS push could not prompt for credentials in the non-interactive environment. SSH authenticated as `fuling-ruozhi` and confirmed repository access.
+- `git push -u chargingplatform main`: **PASS**. The release history was pushed and local `main` now tracks `chargingplatform/main`.
 
 ## Commit and working tree
 
@@ -38,8 +37,8 @@ The local `main` branch is based on the existing Qt-only snapshot. The client, c
 
 - Release commit: `7b4716f673afeafc14071dff42c0bb71a33b00f9` (`Release Qt charging station platform with logging audit module`).
 - Local branch: `main`.
-- The release worktree was clean immediately after the release commit; this report update records the commit hash and README test-result wording.
+- Release worktree status is clean after the report and README updates.
 
 ## Open items
 
-Provide access to the intended GitHub repository or create it under the specified account, then push the local `main` branch. No local code or test failures remain.
+No local code, test, or publication blockers remain.
