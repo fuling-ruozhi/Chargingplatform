@@ -1,6 +1,6 @@
-/build/
+build/
 /build-*/
-/cmake-build-*/
+cmake-build-*/
 /out/
 /.vs/
 /.cache/
@@ -14,8 +14,8 @@
 **/__pycache__/
 /ml/models/
 /ml/output/
-/.idea/
-/.vscode/
+.idea/
+.vscode/
 /web/
 /ml/
 /scripts/web/

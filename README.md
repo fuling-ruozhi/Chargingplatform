@@ -20,13 +20,13 @@ This repository's GitHub release is scoped to the Qt desktop application: C++17,
 ## Architecture
 
 ```text
-Qt administration and user clients
-                |
-            TCP (JSON)
-                |
-      Service hosted by ncs_admin
-                |
-             SQLite
+User Client
+    |
+TCP JSON Protocol
+    |
+Admin Server
+    |
+SQLite Database
 ```
 
 The user client does not connect to SQLite directly. The administration executable starts the TCP server (default loopback address `127.0.0.1`, port `9527`) and also provides the administration UI.

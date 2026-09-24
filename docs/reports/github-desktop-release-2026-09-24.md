@@ -1,41 +1,40 @@
-# Charging Platform GitHub Release Report
+# GitHub Release Report
 
-## 范围
+## Scope
 
-整理 Ubuntu/Linux Qt 桌面版充电桩管理平台，准备发布至 `fuling-ruozhi/NCS-Charging-Station-Platform`。发布快照仅选取 Qt/C++ 客户端、核心服务、SQLite schema、CMake、桌面项目文档、截图和测试；Vue `web/`、ML `ml/`、其余 Web 脚本以及构建/本地运行产物不纳入快照。仓库内用户端用于嵌入地图的 Qt HTML 资源保留为桌面客户端资源。
+Prepare the Qt/Linux desktop charging station management platform for `fuling-ruozhi/NCS-Charging-Station-Platform`. The release tree contains the Qt/C++ clients, shared client components, core services, SQLite schema, tests, docs, CMake files, and license. Standalone Vue/H5, Spring Boot, MySQL, Redis, and Docker components are not part of this release. The embedded HTML resource used by the Qt client's in-app map remains a Qt resource.
 
-## 技术栈
+## Logging module
 
-C++17、Qt 6.2+、CMake、Qt SQL/SQLite、Qt Network TCP、Ubuntu/Linux。
+Included the administrator log audit page; logging schema migration; administrator route validation and audit routes; authentication rate limiting; log service; and `ncs_logging_service` / `ncs_auth_rate_limit` tests. Related DB, TCP, service, UI, schema, and test integration changes are included.
 
-## 整理内容
+## Repository cleanup and documentation
 
-- 重写 `README.md`，记录功能、架构、依赖、构建、启动顺序、项目结构和桌面截图位置。
-- 更新 `.gitignore`，覆盖构建目录、Qt/IDE 临时配置、日志、数据库、缓存及仓库内 Vue/ML 目录。
-- 发布文件范围：`CMakeLists.txt`、`CMakePresets.json`、`client_admin/`、`client_common/`、`client_user/`、`core/`、`db/`、桌面所需 `docs/` 文件、`tests/`、`LICENSE`、`README.md` 和 `.gitignore`。
-- 任务开始时，工作区已有未提交的 C++/测试改动；这些当前项目文件包含在发布快照中，未改写原分支历史。
+- `.gitignore` excludes build directories, SQLite/database files, logs, IDE files, and user-specific files.
+- Added `README.md` and `README_CN.md` with project overview, architecture, functionality, build/run instructions, tests, screenshots, and author details.
+- Existing desktop screenshots under `docs/reports/` are referenced from both READMEs.
+- Release staging is limited to Qt project paths; standalone `web/`, `ml/`, and build products are excluded.
 
-## 验证
+## Build and tests
 
-- `cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug`：通过。
-- `cmake --build build -j$(nproc)`：通过，构建管理端、用户端及 65 个测试目标。
-- `ctest --test-dir build --output-on-failure`：65/65 通过。
-- 以 `/tmp/ncs_release_smoke_escalated` 为独立数据根目录，短时启动 `ncs_admin` 和 `ncs_user`：SQLite 初始化成功；服务端监听 `127.0.0.1:9527`；管理端和用户端均建立 TCP 连接；`PRAGMA integrity_check` 返回 `ok`，共初始化 18 张表。
-- GUI 烟测使用 `QT_QPA_PLATFORM=offscreen`，只验证程序启动、服务监听和连接；未人工操作登录表单及后续业务页面。
+- From the existing `build/` directory, `cmake ..`: PASS.
+- `cmake --build . -j$(nproc)`: PASS; built `ncs_admin`, `ncs_user`, and test targets.
+- Initial sandbox `ctest --output-on-failure`: 43/65 passed; loopback network restrictions caused failures.
+- Re-run with local loopback access, `ctest --output-on-failure`: **65/65 passed**.
+- Includes logging service, auth rate limiting, schema migration, SQLite-backed integration, TCP client/server, admin UI, user UI, and station recommendation coverage.
 
-## GitHub 状态
+## GitHub status
 
-- 目标地址：<https://github.com/fuling-ruozhi/NCS-Charging-Station-Platform>
-- 匿名 GitHub API 查询返回 HTTP 404；私有仓库也可能返回相同结果，因此无法只凭此结果判断仓库是否存在。
-- HTTPS Git 查询需要用户名凭据；SSH 查询因本机 GitHub host key/认证不可用而失败；本机没有 `gh` CLI 或 `GH_TOKEN`/`GITHUB_TOKEN`。
-- 已将 GitHub URL 配置为本地 `github` remote；现有 `origin`（Gitee）保持不变。
-- 因缺少有效 GitHub 认证，未创建/覆盖远端、未推送。
-- 本地发布提交（Qt-only 初始快照）：`8457801d644bdef74c0a66725f94b13f19bcac8c`。
+- Target: <https://github.com/fuling-ruozhi/NCS-Charging-Station-Platform>
+- Configured `github` remote: `git@github.com:fuling-ruozhi/NCS-Charging-Station-Platform.git`.
+- `git fetch --all --prune` updated `origin` but GitHub returned `Repository not found` for `github`. This can mean the repository does not exist or the current SSH identity lacks access.
+- `ssh -T git@github.com` authenticated successfully as `fuling-ruozhi`; GitHub still returned `Repository not found` for the target repository.
+- No repository was created and no push was attempted. The authenticated target is not available, so do not substitute another repository.
 
-## 当前 Git 状态
+## Commit and working tree
 
-当前检出的 `feature/admin/formal-dashboard-final` 仍有未提交改动。该状态在任务开始时已存在；本次没有把这些改动暂存或提交到该分支。README、忽略规则和本报告的任务改动也显示在该工作区状态中。构建目录被忽略。独立的本地 `main` 发布历史只包含上文所列 Qt 桌面文件，已检查不含 `web/`、`ml/`、构建目录、数据库文件、`package.json`、`pom.xml` 或 Dockerfile。
+The local `main` branch is based on the existing Qt-only snapshot. The client, core, database, and test trees match the validated feature worktree, including all listed logging sources and tests. The original feature branch worktree is kept intact; no reset or force push is used. The release commit hash is recorded in the final release report/update.
 
-## 未解决问题
+## Open items
 
-需要可用的 GitHub 认证以检查目标仓库的私有/已存在状态，必要时创建仓库并推送 `main`。在认证可用前，本报告不宣称已经发布。
+Provide access to the intended GitHub repository or create it under the specified account, then push the local `main` branch. No local code or test failures remain.
